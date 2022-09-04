@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra clone demo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+        integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+      #coupon {
+        height: 400px;
+        width: 400px;
+        background-image: url(Images/images.jpeg);
+        position: absolute;
+        margin-left: 30%;
+        z-index: 10;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <header class="text-gray-600 body-font">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <!--<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-indigo-500 rounded-full" viewBox="0 0 24 24">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+            </svg>-->
+                <img src="https://images.indianexpress.com/2021/01/myntra.png" class="image" alt="myntra logo">
+                <!--<span class="ml-3 text-xl">Tailblocks</span>-->
+            </a>
+            <nav
+                class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items-center text-base justify-center">
+                <a class="mr-5 hover:text-gray-900">MEN</a>
+                <a class="mr-5 hover:text-gray-900">WOMEN</a>
+                <a class="mr-5 hover:text-gray-900">KIDS</a>
+                <a class="mr-5 hover:text-gray-900">HOME AND LIVING</a>
+                <a class="mr-5 hover:text-gray-900">BEAUTY</a>
+                <a class="mr-5 hover:text-gray-900">STUDIO</a>
+            </nav>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search for products" aria-label="Search">
+                <!--<button class="btn btn-outline-success" type="submit">Search</button>-->
+            </form>
+            <!--<button
+                class="inline-flex items-center bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+                    <path d="M5 12h14M12 5l7 7-7 7"></path>
+                </svg>
+            </button>-->
+        </div>
+    </header>
+    <div id="coupon">
+      <button onClick="closeCoupon()">&times;</button>
+    </div>
+    <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+                aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+                aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+                aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+                <img src="Images/b1.jpg" class="d-block w-100" alt="Banner1">
+                <!--<div class="carousel-caption d-none d-md-block">
+              <h5>First slide label</h5>
+              <p>Some representative placeholder content for the first slide.</p>
+            </div>-->
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+                <img src="Images/b2.jpg"
+                    class="d-block w-100" alt="Banner2">
+                <!--<div class="carousel-caption d-none d-md-block">
+              <h5>Second slide label</h5>
+              <p>Some representative placeholder content for the second slide.</p>
+            </div>-->
+            </div>
+            <div class="carousel-item">
+                <img src="Images/b3.jpg" class="d-block w-100" alt="Banner3">
+                <!--<div class="carousel-caption d-none d-md-block">
+              <h5>Third slide label</h5>
+              <p>Some representative placeholder content for the third slide.</p>
+            </div>-->
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div><br><br>
+    <h2 style="margin-left: 5%;font-weight: bold;font-size: 30px;"><strong>D&nbsp;E&nbsp;A&nbsp;L&nbsp;&nbsp;
+            O&nbsp;F&nbsp;&nbsp; T&nbsp;H&nbsp;E&nbsp;&nbsp; D&nbsp;A&nbsp;Y</strong></h2><br>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp1.jpg"
+                            width="420px" height="260px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Fashion on a budget</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Style must haves</h2>
+                        <p class="mt-1">Under Rs. 799/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp2.jpg"
+                            width="421px" height="261px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">The Roadster life Co.</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Tops and T-shirts</h2>
+                        <p class="mt-1">Under Rs. 599/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp3.jpg"
+                            width="422px" height="262px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">LIBAS</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Top Ethnic wear</h2>
+                        <p class="mt-1">50 to 70% off</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp4.jpg"
+                            width="423px" height="263px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">ELLE</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Flats and Heels</h2>
+                        <p class="mt-1">Min 60% off</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp5.jpg"
+                            width="424px" height="264px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">RedTape</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Stylish Footwear</h2>
+                        <p class="mt-1">Min. 65% off</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" src="Images/rp6.jpg" width="425px" height="265px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Beautiful Pairs for you!</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Ethnic Footwear</h2>
+                        <p class="mt-1">Starting Rs. 699/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp7.jpg"
+                            width="426px" height="266px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">Complete your Wardrobe</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Accessories</h2>
+                        <p class="mt-1">Min. 50% off</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce"
+                            src="Images/rp8.jpg"
+                            width="427px" height="267px">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">MAYBELLINE NEW YORK</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Makeup</h2>
+                        <p class="mt-1">Upto 40% off</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><br>
+    <h2 style="margin-left: 5%;font-weight: bold;font-size: 30px;"><strong>B&nbsp;E&nbsp;S&nbsp;T&nbsp;&nbsp;
+            O&nbsp;F&nbsp;&nbsp; M&nbsp;Y&nbsp;N&nbsp;T&nbsp;R&nbsp;A&nbsp;&nbsp;
+            E&nbsp;X&nbsp;C&nbsp;L&nbsp;U&nbsp;S&nbsp;I&nbsp;V&nbsp;E&nbsp;&nbsp;
+            B&nbsp;R&nbsp;A&nbsp;N&nbsp;D&nbsp;S</strong></h2><br>
+    <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-wrap -m-4">
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp9.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">HRX</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Stylish picks</h2>
+                        <p class="mt-1">Min. 70% + extra 20% off</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp10.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">The Roadster</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">T-shirts</h2>
+                        <p class="mt-1">Rs. 199/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp11.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">DRESSBERRY</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Dresses</h2>
+                        <p class="mt-1">Starting from Rs. 599/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp12.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">The Roadster</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Casual shirts</h2>
+                        <p class="mt-1">Starts from Rs. 499/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp13.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">DRESSBERRY</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Tops and Casual shirts</h2>
+                        <p class="mt-1">Rs. 299/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp14.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">ANOUK</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Kurta sets</h2>
+                        <p class="mt-1">Min. Rs. 699/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp15.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">ANOUK</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Kurta sets</h2>
+                        <p class="mt-1">Min. Rs.499/-</p>
+                    </div>
+                </div>
+                <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                    <a class="block relative h-48 rounded overflow-hidden">
+                        <img alt="ecommerce" 
+                            src="Images/rp16.jpg">
+                    </a>
+                    <div class="mt-4">
+                        <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">The Roadster, HRX and more</h3>
+                        <h2 class="text-gray-900 title-font text-lg font-medium">Stylish picks</h2>
+                        <p class="mt-1">Min 70% + extra 20%</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <div class="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">ONLINE SHOPPING</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Men</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Women</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Kids</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Home and Living</a>
+                </li>
+                <li>
+                    <a class="text-gray-600 hover:text-gray-800">Beauty</a>
+                </li>
+                <li>
+                    <a class="text-gray-600 hover:text-gray-800">Gift Cards</a>
+                </li>
+                <li>
+                    <a class="text-gray-600 hover:text-gray-800">Myntra Insider</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">USEFUL LINKS</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Blog</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Careers</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Site Map</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Corporate Information</a>
+                </li>
+                <li>
+                    <a class="text-gray-600 hover:text-gray-800">Whitehat</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Customer Policies</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Contact Us</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Policies</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Terms of Use</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">FAQ</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Registered Office Address</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Buildings Alyssa,</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Begonia and Clover situated in Embassy Tech Village,</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Outer Ring Road,</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Bengaluru, India</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">BEST ONLINE SHOPPING IN INDIA FOR FASHION</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Smart Men's clothing</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Trendy Women's clothing</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Fashionable footwear</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Stylish accessories</a>
+                </li>
+              </nav>
+            </div>
+            <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+              <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">Myntra Insider</h2>
+              <nav class="list-none mb-10">
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Insider</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Elite</a>
+                </li>
+                <li>
+                  <a class="text-gray-600 hover:text-gray-800">Icon</a>
+                </li>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="border-t border-gray-200">
+          <button onClick="changeMode()">Change Mode</button>
+          <div class="container px-5 py-8 flex flex-wrap mx-auto items-center">
+            <div class="flex md:flex-nowrap flex-wrap justify-center items-end md:justify-start">
+              <div class="relative sm:w-64 w-40 sm:mr-4 mr-2">
+                <label for="footer-field" class="leading-7 text-sm text-gray-600">Search</label>
+                <input type="text" id="footer-field" name="footer-field" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+              </div>
+              <button class="inline-flex text-white bg-pink-500 border-0 py-2 px-6 focus:outline-none hover:bg-pink-600 rounded">Button</button>
+              <!--<p class="text-gray-500 text-sm md:ml-6 md:mt-0 mt-2 sm:text-left text-center">Bitters chicharrones fanny pack
+                <br class="lg:block hidden">waistcoat green juice
+              </p>-->
+            </div>
+            <span class="inline-flex lg:ml-auto lg:mt-0 mt-6 w-full justify-center md:justify-start md:w-auto">
+              <a class="text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                  <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                  <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+              </a>
+              <a class="ml-3 text-gray-500">
+                <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                  <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+                  <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                </svg>
+              </a>
+            </span>
+          </div>
+        </div>
+        <!--<div class="bg-gray-100">
+          <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+            <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 Tailblocks —
+              <a href="https://twitter.com/knyttneve" class="text-gray-600 ml-1" target="_blank" rel="noopener noreferrer">@knyttneve</a>
+            </p>
+            <span class="sm:ml-auto sm:mt-0 mt-2 sm:w-auto w-full sm:text-left text-center text-gray-500 text-sm">Enamel pin tousled raclette tacos irony</span>
+          </div>
+        </div>-->
+      </footer>
+      <script>
+        const changeMode=()=>{
+            let mybody = document.body;
+            mybody.classList.toggle('mydark')
+        }
+    </script>
+    <script>
+      window.onload=loadCoupon();
+    </script>
+</body>
+
+</html>

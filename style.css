@@ -1,0 +1,19 @@
+body {
+    background-color: white;
+    color: black;
+}
+.mydark {
+    background-color: black;
+    color: white;
+}
+.image {
+    display: flex;
+    justify-content: center;
+    width: 90px;
+    height: 70px;
+}
+/*.deal {
+    width: 600px;
+    height: 262px;
+}*/
+    
